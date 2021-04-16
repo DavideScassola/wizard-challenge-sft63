@@ -28,6 +28,9 @@ def main(experiment: Experiment, pipeline: Pipeline):
     results = pipeline.eval(metrics=["f1"])
     print(results)
 
+    # Prediction
+    pipeline.write_prediction()
+
 
 if __name__ == '__main__':
     pipeline = Pipeline("my_pipeline", Experiment())
