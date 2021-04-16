@@ -2,6 +2,7 @@
 
 class Pipeline:
     def __init__(self, name: str, experiment):
+        # TODO
         self.name = name
         self.experiment = experiment
 
@@ -31,4 +32,5 @@ class Pipeline:
         pass
 
     def run(self, f):
+        # TODO
         f(self.experiment, self)
