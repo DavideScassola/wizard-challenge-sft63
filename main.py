@@ -25,7 +25,7 @@ def main(experiment: Experiment, pipeline: Pipeline):
     pipeline.fit()
 
     # Evaluation
-    results = pipeline.eval(metrics=["f1"])
+    results = pipeline.eval(metrics=["f1","accuracy"])
     print(results)
 
     # Prediction

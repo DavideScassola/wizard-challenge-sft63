@@ -140,3 +140,4 @@ cython_debug/
 # pyCharm
 .idea/
 venv/
+tests.py
