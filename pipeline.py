@@ -33,7 +33,7 @@ class Pipeline:
 
     def eval(self, metrics, input_name="train_input", labels_name="train_labels"):
         """
-        This method evaluates the model on a chosen dataset with a chosen metric
+        This method evaluates the model on a chosen dataset with a chosen metric (As default it uses the training set)
         :param metrics: a list of strings representing the metrics used to evaluate the prediction
         :param input_name: name indicating the input dataset, the default is "train_input"
         :param labels_name: name indicating the labels dataset, the default is "train_labels"
@@ -74,12 +74,18 @@ class Pipeline:
     def get_preprocessed_train_data(self):
         return self.get_preprocessed_data("train_input", "train_labels")
 
-    def write_prediction(self):
+    def write_prediction(self, verbose = True):
         """
         This method computes the predictions for a given test input dataset and then writes them in a text file
         """
+        if verbose:
+            print("computing predictions...")
+
         test_input = self.get_preprocessed_data("test_input")
         predicted_labels = self.model.predict(test_input)
         self.preprocessor.data_writer(predicted_labels, "./test_labels.txt")
+
+        if verbose:
+            print("done")
 
 
